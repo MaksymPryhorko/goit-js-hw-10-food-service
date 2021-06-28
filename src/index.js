@@ -14,26 +14,22 @@ function createMenuCardsMarkup(menuCards) {
 
 
 
-const conso = () => {
-    if (bodyRef.classList.contains(Theme.LIGHT)) {
-        bodyRef.classList.remove(Theme.LIGHT);
+const changeTheme = (e) => {
+    if (e.target.checked) {
+        // bodyRef.classList.remove(Theme.LIGHT);
         bodyRef.classList.add(Theme.DARK);
         localStorage.setItem('theme', Theme.DARK);
-        return;
-    };
-
-    if (bodyRef.classList.contains(Theme.DARK)) {
+        // return;
+    } else {
         bodyRef.classList.remove(Theme.DARK);
         bodyRef.classList.add(Theme.LIGHT);
         localStorage.setItem('theme', Theme.LIGHT);
-        return;
+        // return;
     };
-    bodyRef.classList.add(Theme.DARK);
-    localStorage.setItem('theme',Theme.DARK);
 };
 
 const themeSwitchToggleRef = document.querySelector('#theme-switch-toggle');
-themeSwitchToggleRef.addEventListener('change', conso);
+themeSwitchToggleRef.addEventListener('change', changeTheme);
 const bodyRef = document.querySelector('body');
 
 const theme = localStorage.getItem('theme');
